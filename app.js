@@ -32,3 +32,19 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   if (error) alert(error.message);
   else window.location.href = "/members.html";
 });
+
+// check user session on protected pages
+async function requireAuth() {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) {
+    // not logged in
+    window.location.href = "/";
+  } else {
+    document.getElementById("protected-content").style.display = "block";
+  }
+}
+
+// Run on members page only
+if (window.location.pathname.includes("members")) {
+  requireAuth();
+}
