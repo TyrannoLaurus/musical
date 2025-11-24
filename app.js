@@ -27,14 +27,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const email = document.getElementById("login-email").value;
       const password = document.getElementById("login-password").value;
 
-      const { data, error } = await client.auth.signInWithPassword({
+      const { 
+        data: { user }, 
+        error 
+      } = await client.auth.signInWithPassword({
         email,
         password,
       });
 
-      if (error) alert(error.message);
-      else window.location.href = "members.html";
-    });
+      if (error) {alert(error.message);}
+      else if (user) {window.location.href = "members.html";}
+      else {alert("Login mislukt: gebruiker bestaat niet");}
+                    
+    };
   }
 });
 
