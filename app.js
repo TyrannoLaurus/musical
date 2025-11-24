@@ -45,16 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // check user session on protected pages
 async function requireAuth() {
-  const { data: { session } } = await client.auth.getSession();
-  console.log("Current session:", session);
-  
+  const {
+    data: { session },
+  } = await client.auth.getSession();
+
+  console.log("Session on members page:", session);
+
   if (!session) {
-    // not logged in
-    window.location.href = "login.html";
+    window.location.href = "musical/login.html";
   } else {
-    document.getElementById("protected-content")?.style.display = "block";
+    const protectedDiv = document.getElementById("protected-content");
+    if (protectedDiv) protectedDiv.style.display = "block";
   }
 }
+
 
 // Run on members page only
 if (window.location.pathname.includes("members")) {
