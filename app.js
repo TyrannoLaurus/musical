@@ -4,7 +4,7 @@ const client = supabase.createClient(
 );
 
 // sign up
-// document.getElementById("signup-form").addEventListener("submit", async (e) => {
+// document.getElementById("signup-form")?.addEventListener("submit", async (e) => {
 //   e.preventDefault();
 //   const email = document.getElementById("signup-email").value;
 //   const password = document.getElementById("signup-password").value;
