@@ -19,18 +19,23 @@ const client = supabase.createClient(
 // });
 
 // log in
-document.getElementById("login-form")?.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const email = document.getElementById("login-email")?.value;
-  const password = document.getElementById("login-password")?.value;
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("login-form");
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
 
-  const { data, error } = await client.auth.signInWithPassword({
-    email,
-    password,
-  });
+      const { data, error } = await client.auth.signInWithPassword({
+        email,
+        password,
+      });
 
-  if (error) alert(error.message);
-  else window.location.href = "members.html";
+      if (error) alert(error.message);
+      else window.location.href = "members.html";
+    });
+  }
 });
 
 // check user session on protected pages
