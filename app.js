@@ -37,11 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (error) {alert(error.message);}
       else if (user) {window.location.href = "members.html";}
-      else {alert("Login mislukt: gebruiker bestaat niet");}
+      else {alert("Login mislukt: gebruiker bestaat niet");
+      }
                     
-    };
-  }
-});
+    });
+
 
 // check user session on protected pages
 async function requireAuth() {
