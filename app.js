@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (error) alert(error.message);
-      else window.location.href = "musical/members.html";
+      else window.location.href = "members.html";
     });
   }
 });
@@ -45,7 +45,7 @@ async function requireAuth() {
   
   if (!session) {
     // not logged in
-    window.location.href = "musical/login.html";
+    window.location.href = "login.html";
   } else {
     document.getElementById("protected-content")?.style.display = "block";
   }
