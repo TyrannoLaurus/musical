@@ -30,7 +30,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   });
 
   if (error) alert(error.message);
-  else window.location.href = "musical/members.html";
+  else window.location.href = "members.html";
 });
 
 // check user session on protected pages
