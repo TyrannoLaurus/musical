@@ -36,9 +36,11 @@ document.getElementById("login-form")?.addEventListener("submit", async (e) => {
 // check user session on protected pages
 async function requireAuth() {
   const { data: { session } } = await client.auth.getSession();
+  console.log("Current session:", session);
+  
   if (!session) {
     // not logged in
-    window.location.href = "/";
+    window.location.href = "login.html";
   } else {
     document.getElementById("protected-content")?.style.display = "block";
   }
