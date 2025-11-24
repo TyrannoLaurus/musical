@@ -4,19 +4,19 @@ const client = supabase.createClient(
 );
 
 // sign up
-document.getElementById("signup-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const email = document.getElementById("signup-email").value;
-  const password = document.getElementById("signup-password").value;
+// document.getElementById("signup-form").addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   const email = document.getElementById("signup-email").value;
+//   const password = document.getElementById("signup-password").value;
 
-  const { data, error } = await client.auth.signUp({
-    email,
-    password,
-  });
+//   const { data, error } = await client.auth.signUp({
+//     email,
+//     password,
+//   });
 
-  if (error) alert(error.message);
-  else alert("Check your email to confirm your account");
-});
+//   if (error) alert(error.message);
+//   else alert("Check your email to confirm your account");
+// });
 
 // log in
 document.getElementById("login-form").addEventListener("submit", async (e) => {
