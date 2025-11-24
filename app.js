@@ -19,10 +19,10 @@ const client = supabase.createClient(
 // });
 
 // log in
-document.getElementById("login-form").addEventListener("submit", async (e) => {
+document.getElementById("login-form")?.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
+  const email = document.getElementById("login-email")?.value;
+  const password = document.getElementById("login-password")?.value;
 
   const { data, error } = await client.auth.signInWithPassword({
     email,
@@ -40,7 +40,7 @@ async function requireAuth() {
     // not logged in
     window.location.href = "/";
   } else {
-    document.getElementById("protected-content").style.display = "block";
+    document.getElementById("protected-content")?.style.display = "block";
   }
 }
 
